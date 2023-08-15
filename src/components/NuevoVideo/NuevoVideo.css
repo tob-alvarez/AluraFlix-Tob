@@ -1,0 +1,35 @@
+.formNuevoVideo {
+  background-color: #fff;
+  height: 800px;
+}
+.tituloNuevoVideo {
+  color: #000;
+  font-weight: 700;
+  font-size: 40px;
+}
+.inputsFormNuevoVideo {
+  height: 50px;
+  width: 40vw;
+  margin-top: 20px;
+}
+textarea {
+  resize: none !important;
+}
+.btnAgregarVideo {
+  width: fit-content;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #2a7ae4;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 500;
+}
+.btnBorrarForm {
+  width: fit-content;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #b68405;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 500;
+}

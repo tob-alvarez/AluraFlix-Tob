@@ -1,5 +1,8 @@
 import "./Home.css";
 import fotoBanner from "../../assets/fotoPreviewVideo.png";
+import FrontVideos from "../VideosFront/FrontVideos";
+import BackVideos from "../BackendVideos/BackendVideos";
+import IyG from "../IyG/IyG";
 
 const Home = () => {
   return (
@@ -18,6 +21,9 @@ const Home = () => {
           <img src={fotoBanner} alt="" className="previewVideoBanner" />
         </div>
       </section>
+      <FrontVideos />
+      <BackVideos />
+      <IyG />
     </>
   );
 };

@@ -1,17 +1,18 @@
-import BackendVideos from "./components/BackendVideos/BackendVideos";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
-import IyG from "./components/IyG/IyG";
 import Layout from "./components/Layout/Layout";
-import FrontVideos from "./components/VIdeosFront/FrontVideos";
+import NuevoVideo from "./components/NuevoVideo/NuevoVideo";
 
 function App() {
   return (
-    <Layout>
-      <Home />
-      <FrontVideos />
-      <BackendVideos />
-      <IyG />
-    </Layout>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/*" element={<Home />}></Route>
+          <Route path="/nuevo-video" element={<NuevoVideo />}></Route>
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 

@@ -1,6 +1,7 @@
 .logoPagina {
   margin-left: 5%;
   height: 40px;
+  cursor: pointer;
 }
 .btnNuevoVideo {
   margin-right: 5%;
@@ -12,6 +13,12 @@
   margin-top: 10px;
   margin-bottom: 10px;
   color: #fff;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+.btnNuevoVideo:hover {
+  background-color: #6bd1ff;
+  color: #000;
 }
 .headerNav {
   background-color: transparent;
@@ -22,6 +29,7 @@
   display: flex;
   justify-content: space-between;
   position: fixed;
+  height: 66px;
 }
 .sticky-header {
   top: 0;
