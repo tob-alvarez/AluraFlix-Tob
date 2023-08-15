@@ -1,0 +1,23 @@
+.BackendSection {
+  background-color: #141414;
+  display: flex;
+  color: #fff;
+  justify-content: flex-start;
+  padding: 20px 0px 0px 20px;
+  align-items: center;
+  gap: 30px;
+}
+.tituloBack {
+  background-color: #00c86f;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 35px;
+}
+.spanBack {
+  font-size: 18px;
+  font-weight: 300;
+}
+.backVideos {
+  background-color: #141414;
+}
