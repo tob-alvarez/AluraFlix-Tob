@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "./Navbar.css";
 import fotoLogo from "../../assets/logoTobFlix.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -22,30 +24,44 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const nuevoVideo = () => {
-    navigate("/nuevo-video");
-  };
   const home = () => {
     navigate("/*");
+  };
+  const back = () => {
+    navigate(-1);
   };
   return (
     <>
       <header className={isSticky ? "sticky-header" : "headerNav"}>
+        {location.pathname == "/nuevo-video" && (
+            <button className="btnVolver" onClick={back}>
+              <FontAwesomeIcon
+                className="btnVolverIcono"
+                icon={faArrowLeftLong}
+              />
+            </button>
+          )}
+          {location.pathname == "/nueva-categoria" && (
+            <button className="btnVolver" onClick={back}>
+              <FontAwesomeIcon
+                className="btnVolverIcono"
+                icon={faArrowLeftLong}
+              />
+            </button>
+          )}
         <img
           src={fotoLogo}
           alt="logoPagina"
           className="logoPagina"
           onClick={home}
         />
-        {location.pathname !== "/nuevo-video" && (
-          <Link
-            className="btnNuevoVideo"
-            to="/nuevo-video"
-            onClick={nuevoVideo}
-          >
-            Nuevo Video
-          </Link>
-        )}
+
+        {location.pathname !== "/nuevo-video" &&
+          location.pathname !== "/nueva-categoria" && (
+            <Link className="btnNuevoVideo" to="/nuevo-video">
+              Nuevo Video
+            </Link>
+          )}
       </header>
     </>
   );

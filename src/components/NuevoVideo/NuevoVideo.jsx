@@ -1,51 +1,108 @@
+import { useState } from "react";
 import "./NuevoVideo.css";
+import { Link } from "react-router-dom";
 
 const NuevoVideo = () => {
+  const initialValues = {
+    titulo: "",
+    linkVideo: "",
+    linkImagen: "",
+    categoria: "",
+    descripcion: "",
+    codigo: "",
+  };
+
+  const [values, setValues] = useState(initialValues);
+
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const borrarCampos = () => {
+    setValues(initialValues);
+  };
   return (
     <>
       <section className="d-flex flex-column justify-content-center w-100 align-items-center formNuevoVideo">
         <h2 className="tituloNuevoVideo">Nuevo Video</h2>
         <form className="d-flex flex-column">
-          <input
-            type="text"
-            placeholder="Titulo"
-            className="inputsFormNuevoVideo"
-          />
-          <input
-            type="text"
-            placeholder="Link del Video"
-            className="inputsFormNuevoVideo"
-          />
-          <input
-            type="text"
-            placeholder="Link de la imagen del video"
-            className="inputsFormNuevoVideo"
-          />
-          <select className="inputsFormNuevoVideo">
+          <div className="inputBox">
+            <input
+              name="titulo"
+              type="text"
+              required="required"
+              maxLength={20}
+              onChange={handleChange}
+              value={values.titulo}
+            />
+            <span>Titulo</span>
+            <i></i>
+          </div>
+          <div className="inputBox">
+            <input
+              name="linkVideo"
+              type="text"
+              required="required"
+              onChange={handleChange}
+              value={values.linkVideo}
+            />
+            <span>Link del Video</span>
+            <i></i>
+          </div>
+          <div className="inputBox">
+            <input
+              name="linkImagen"
+              type="text"
+              required="required"
+              onChange={handleChange}
+              value={values.linkImagen}
+            />
+            <span>Link del Imagen</span>
+            <i></i>
+          </div>
+          <select className="inputsFormNuevoVideo inputSelect">
             <option>---Elegi una categoria---</option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+            <option value="POO">POO</option>
+            <option value="Data Science">Data Science</option>
+            <option value="Machine Learning">Machine Learning</option>
           </select>
-          <textarea
-            min={20}
-            max={240}
-            placeholder="Descripción"
-            className="inputsFormNuevoVideo"
-          />
-          <input
-            type="text"
-            placeholder="Codigo de Seguridad"
-            className="inputsFormNuevoVideo"
-          />
+          <i className="iSelect"></i>
+          <div className="inputBox">
+            <textarea
+              name="descripcion"
+              type="text"
+              required="required"
+              onChange={handleChange}
+              value={values.descripcion}
+            />
+            <span>Descripcion</span>
+            <i></i>
+          </div>
+          <div className="inputBox">
+            <input
+              name="codigo"
+              type="text"
+              required="required"
+              onChange={handleChange}
+              value={values.codigo}
+            />
+            <span>Codigo de Seguridad</span>
+            <i></i>
+          </div>
         </form>
         <div className="d-flex justify-content-around w-50 mt-3">
           <div className="d-flex gap-5">
             <button className="btnAgregarVideo">Guardar</button>
-            <button className="btnBorrarForm">Limpiar</button>
+            <button className="btnBorrarForm" onClick={borrarCampos}>
+              Limpiar
+            </button>
           </div>
-          <button className="btnAgregarVideo">Nueva Categoria</button>
+          <Link to="/nueva-categoria" className="btnAgregarVideo">
+            Nueva Categoria
+          </Link>
         </div>
       </section>
     </>

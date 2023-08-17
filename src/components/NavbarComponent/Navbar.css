@@ -42,3 +42,14 @@
   width: 100%;
   z-index: 99;
 }
+.btnVolver {
+  top: 100px;
+  left: 100px;
+  position: absolute;
+  background: transparent;
+  border: none;
+}
+.btnVolverIcono {
+  color: #db202c;
+  height: 40px;
+}
