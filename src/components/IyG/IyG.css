@@ -14,12 +14,7 @@
   font-weight: 400;
   font-size: 35px;
 }
-.IyGVideos {
-  overflow: hidden;
-  background-color: #141414;
-  transition: 0.3s ease-in-out;
-  padding-left: 20px;
-}
+
 .frontColVideos {
-  padding-right: 20px;
+  margin-right: 20px;
 }

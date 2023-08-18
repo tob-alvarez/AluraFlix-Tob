@@ -3,55 +3,43 @@ import fotoFront1 from "../../assets/front1.png";
 import fotoFront2 from "../../assets/front2.png";
 import fotoFront3 from "../../assets/front3.png";
 import fotoFront4 from "../../assets/front4.png";
-import Slider from "react-slick";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowAltCircleLeft,
+  faArrowAltCircleRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 const FrontVideos = () => {
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    arrows: true,
-    slidesToScroll: 3,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
   return (
     <>
       <section className="d-flex justify-content-between frontVideos">
-        <Slider {...settings} className="IyGVideos">
+        <div>
           <img src={fotoFront1} alt="" className="frontColVideos " />
+        </div>
+        <div>
           <img src={fotoFront2} alt="" className="frontColVideos " />
+        </div>
+        <div>
           <img src={fotoFront3} alt="" className="frontColVideos " />
+        </div>
+        <div>
           <img src={fotoFront4} alt="" className="frontColVideos " />
+        </div>
+        <div>
           <img src={fotoFront4} alt="" className="frontColVideos " />
-        </Slider>
+        </div>
+        <div>
+          <img src={fotoFront4} alt="" className="frontColVideos " />
+        </div>
       </section>
+      <div className="contenedorFlechas">
+        <div className="d-flex justify-content-between align-items-center contFlechaIzquierda">
+          <FontAwesomeIcon icon={faArrowAltCircleLeft} className="flechaIzq" />
+        </div>
+        <div className="d-flex justify-content-between align-items-center contenedorFlecha">
+          <FontAwesomeIcon icon={faArrowAltCircleRight} className="flechaDer" />
+        </div>
+      </div>
     </>
   );
 };

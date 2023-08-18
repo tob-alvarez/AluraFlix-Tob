@@ -10,6 +10,14 @@
   width: 100%;
   margin-top: 35px;
 }
+.btnAgregarCategoria {
+  width: 150px;
+  height: 44px;
+}
+.btnBorrarFormCategoria {
+  width: 150px;
+  height: 44px;
+}
 .inputBox input {
   position: relative;
   width: 100%;
@@ -85,4 +93,34 @@
 .inputBox textarea:valid ~ i,
 .inputBox textarea:focus ~ i {
   height: 75px;
+}
+.tablaNuevaCategoria {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.columnaFijaNombre {
+  width: 180px;
+}
+.columnaFijaIconos {
+  width: 90px;
+}
+.columnaFijaIndice {
+  width: 40px;
+}
+.editable {
+  cursor: pointer;
+}
+.colorFront {
+  background: #6bd1ff !important;
+  border: 1px solid #6bd1ff;
+}
+.colorBack {
+  background: #00c86f !important;
+  border: 1px solid #00c86f;
+}
+.colorIyG {
+  background: #ff8c2a !important;
+  border: 1px solid #ff8c2a;
 }

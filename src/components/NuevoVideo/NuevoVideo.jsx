@@ -1,8 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./NuevoVideo.css";
 import { Link } from "react-router-dom";
 
 const NuevoVideo = () => {
+  const storedCategorias = JSON.parse(localStorage.getItem("categorias"));
+  const storedVideos = JSON.parse(localStorage.getItem("videos")) || [];
+  const [videos, setVideos] = useState(storedVideos);
+
+  useEffect(() => {
+    localStorage.setItem("videos", JSON.stringify(videos));
+  }, [videos]);
+
+  const guardarVideo = () => {
+    setVideos([...videos, values]);
+    setValues(initialValues);
+  };
+
   const initialValues = {
     titulo: "",
     linkVideo: "",
@@ -24,6 +37,11 @@ const NuevoVideo = () => {
   const borrarCampos = () => {
     setValues(initialValues);
   };
+
+  const handleCategoria = (e) => {
+    setValues({ ...values, categoria: e.target.value });
+  };
+
   return (
     <>
       <section className="d-flex flex-column justify-content-center w-100 align-items-center formNuevoVideo">
@@ -63,11 +81,21 @@ const NuevoVideo = () => {
             <span>Link del Imagen</span>
             <i></i>
           </div>
-          <select className="inputsFormNuevoVideo inputSelect">
+          <select
+            value={values.categoria}
+            className="inputsFormNuevoVideo inputSelect"
+            onChange={handleCategoria}
+          >
             <option>---Elegi una categoria---</option>
-            <option value="POO">POO</option>
-            <option value="Data Science">Data Science</option>
-            <option value="Machine Learning">Machine Learning</option>
+            <option>Frontend</option>
+            <option>Backend</option>
+            <option>Inovacion y Gestion</option>
+            {storedCategorias.map((item) => {
+              return (
+                // eslint-disable-next-line react/jsx-key
+                <option value={item.nombre}>{item.nombre}</option>
+              );
+            })}
           </select>
           <i className="iSelect"></i>
           <div className="inputBox">
@@ -95,7 +123,9 @@ const NuevoVideo = () => {
         </form>
         <div className="d-flex justify-content-around w-50 mt-3">
           <div className="d-flex gap-5">
-            <button className="btnAgregarVideo">Guardar</button>
+            <button className="btnAgregarVideo" onClick={guardarVideo}>
+              Guardar
+            </button>
             <button className="btnBorrarForm" onClick={borrarCampos}>
               Limpiar
             </button>

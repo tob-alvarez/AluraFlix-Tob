@@ -5,4 +5,28 @@
 .frontVideos {
   background-color: #141414;
   padding-top: 30px;
+  overflow: hidden;
+  padding-left: 30px;
+}
+.contenedorFlechas {
+  background-color: #141414;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.flechaIzq {
+  color: #fff;
+  height: 30px;
+  margin-left: 15px;
+}
+.flechaDer {
+  color: #fff;
+  height: 30px;
+  margin-right: 15px;
+}
+.contenedorFlecha {
+  background-color: transparent;
+  position: relative;
+  z-index: 9;
 }
