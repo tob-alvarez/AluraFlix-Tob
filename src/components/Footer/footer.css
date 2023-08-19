@@ -18,3 +18,8 @@
   height: 70px;
   margin-left: 50px;
 }
+.enlacesFooter li a {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}

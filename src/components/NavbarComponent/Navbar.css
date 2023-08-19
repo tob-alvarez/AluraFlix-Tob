@@ -15,10 +15,31 @@
   color: #fff;
   text-decoration: none;
   transition: 0.2s ease-in-out;
+  width: 200px;
+  text-align: center;
+}
+.btnBorrarCache {
+  margin-right: 5%;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+  width: 200px;
+  text-align: center;
+}
+.btnBorrarCache:hover {
+  background-color: rgba(177, 18, 18, 0.595);
+  color: #fff;
 }
 .btnNuevoVideo:hover {
-  background-color: #6bd1ff;
-  color: #000;
+  background-color: #2b8fbeb9;
+  color: #fff;
 }
 .headerNav {
   background-color: transparent;

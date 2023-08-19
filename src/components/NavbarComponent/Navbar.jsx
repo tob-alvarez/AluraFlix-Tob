@@ -34,34 +34,44 @@ const Navbar = () => {
     <>
       <header className={isSticky ? "sticky-header" : "headerNav"}>
         {location.pathname == "/nuevo-video" && (
-            <button className="btnVolver" onClick={back}>
-              <FontAwesomeIcon
-                className="btnVolverIcono"
-                icon={faArrowLeftLong}
-              />
-            </button>
-          )}
-          {location.pathname == "/nueva-categoria" && (
-            <button className="btnVolver" onClick={back}>
-              <FontAwesomeIcon
-                className="btnVolverIcono"
-                icon={faArrowLeftLong}
-              />
-            </button>
-          )}
+          <button className="btnVolver" onClick={back}>
+            <FontAwesomeIcon
+              className="btnVolverIcono"
+              icon={faArrowLeftLong}
+            />
+          </button>
+        )}
+        {location.pathname == "/nueva-categoria" && (
+          <button className="btnVolver" onClick={back}>
+            <FontAwesomeIcon
+              className="btnVolverIcono"
+              icon={faArrowLeftLong}
+            />
+          </button>
+        )}
         <img
           src={fotoLogo}
           alt="logoPagina"
           className="logoPagina"
           onClick={home}
         />
-
-        {location.pathname !== "/nuevo-video" &&
-          location.pathname !== "/nueva-categoria" && (
-            <Link className="btnNuevoVideo" to="/nuevo-video">
-              Nuevo Video
-            </Link>
-          )}
+        <div className="d-flex">
+          {location.pathname !== "/nuevo-video" &&
+            location.pathname !== "/nueva-categoria" && (
+              <Link className="btnNuevoVideo" to="/nuevo-video">
+                Nuevo Video
+              </Link>
+            )}
+          <button
+            className="btnBorrarCache"
+            onClick={() => {
+              localStorage.clear();
+              window.location.reload();
+            }}
+          >
+            Borrar Cache
+          </button>
+        </div>
       </header>
     </>
   );

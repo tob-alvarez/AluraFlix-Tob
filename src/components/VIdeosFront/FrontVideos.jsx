@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./FrontVideos.css";
 import fotoFront1 from "../../assets/front1.png";
 import fotoFront2 from "../../assets/front2.png";
@@ -10,33 +11,86 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const FrontVideos = () => {
+  const storedVideos = JSON.parse(localStorage.getItem("videos"));
+  const [videos, setVideos] = useState(storedVideos);
+
+  console.log(storedVideos);
+  useEffect(() => {
+    localStorage.setItem("videos", JSON.stringify(videos));
+  }, [videos]);
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const scrollCarousel = (direction) => {
+    const carousel = document.querySelector(".carousel");
+    const scrollAmount = 300; // Adjust this value as needed
+
+    if (direction === "left") {
+      if (scrollPosition > 0) {
+        setScrollPosition(scrollPosition - scrollAmount);
+      }
+    } else {
+      if (scrollPosition < carousel.scrollWidth - carousel.clientWidth) {
+        setScrollPosition(scrollPosition + scrollAmount);
+      }
+    }
+  };
+
   return (
     <>
       <section className="d-flex justify-content-between frontVideos">
-        <div>
-          <img src={fotoFront1} alt="" className="frontColVideos " />
-        </div>
-        <div>
-          <img src={fotoFront2} alt="" className="frontColVideos " />
-        </div>
-        <div>
-          <img src={fotoFront3} alt="" className="frontColVideos " />
-        </div>
-        <div>
-          <img src={fotoFront4} alt="" className="frontColVideos " />
-        </div>
-        <div>
-          <img src={fotoFront4} alt="" className="frontColVideos " />
-        </div>
-        <div>
-          <img src={fotoFront4} alt="" className="frontColVideos " />
+        <div className="contenedorVideos">
+          <div
+            className="carousel"
+            style={{
+              transform: `translateX(-${scrollPosition}px)`,
+              transition: "transform 0.3s ease",
+            }}
+          >
+            <div className="video">
+              <img src={fotoFront1} alt="" className="frontColVideos " />
+            </div>
+            <div className="video">
+              <img src={fotoFront2} alt="" className="frontColVideos " />
+            </div>
+            <div className="video">
+              <img src={fotoFront3} alt="" className="frontColVideos " />
+            </div>
+            <div className="video">
+              <img src={fotoFront4} alt="" className="frontColVideos " />
+            </div>
+            {storedVideos == null ? (
+              <></>
+            ) : (
+              storedVideos
+                .filter((item) => item.categoria == "Frontend")
+                .map((item) => {
+                  return (
+                    // eslint-disable-next-line react/jsx-key
+                    <div className="video">
+                      <img
+                        src={item.linkImagen}
+                        alt=""
+                        className="frontColVideos "
+                      />
+                    </div>
+                  );
+                })
+            )}
+          </div>
         </div>
       </section>
       <div className="contenedorFlechas">
-        <div className="d-flex justify-content-between align-items-center contFlechaIzquierda">
+        <div
+          className="d-flex justify-content-between align-items-center contFlechaIzquierda"
+          onClick={() => scrollCarousel("left")}
+        >
           <FontAwesomeIcon icon={faArrowAltCircleLeft} className="flechaIzq" />
         </div>
-        <div className="d-flex justify-content-between align-items-center contenedorFlecha">
+        <div
+          className="d-flex justify-content-between align-items-center contenedorFlecha"
+          onClick={() => scrollCarousel("right")}
+        >
           <FontAwesomeIcon icon={faArrowAltCircleRight} className="flechaDer" />
         </div>
       </div>

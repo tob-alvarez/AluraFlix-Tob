@@ -90,12 +90,22 @@ const NuevoVideo = () => {
             <option>Frontend</option>
             <option>Backend</option>
             <option>Inovacion y Gestion</option>
-            {storedCategorias.map((item) => {
-              return (
-                // eslint-disable-next-line react/jsx-key
-                <option value={item.nombre}>{item.nombre}</option>
-              );
-            })}
+            {storedCategorias == null ? (
+              <></>
+            ) : (
+              storedVideos.map((item) => {
+                return (
+                  // eslint-disable-next-line react/jsx-key
+                  <div className="video">
+                    <img
+                      src={item.linkImagen}
+                      alt=""
+                      className="frontColVideos "
+                    />
+                  </div>
+                );
+              })
+            )}
           </select>
           <i className="iSelect"></i>
           <div className="inputBox">
