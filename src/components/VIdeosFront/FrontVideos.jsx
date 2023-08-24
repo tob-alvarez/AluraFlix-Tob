@@ -23,7 +23,7 @@ const FrontVideos = () => {
 
   const scrollCarousel = (direction) => {
     const carousel = document.querySelector(".carousel");
-    const scrollAmount = 300; // Adjust this value as needed
+    const scrollAmount = 200; // Adjust this value as needed
 
     if (direction === "left") {
       if (scrollPosition > 0) {
@@ -38,13 +38,17 @@ const FrontVideos = () => {
 
   return (
     <>
+      <div className="FrontendSection">
+        <h2 className="tituloFront">Frontend</h2>
+        <span className="spanBack">Formación Frontend de Alura Latam</span>
+      </div>
       <section className="d-flex justify-content-between frontVideos">
         <div className="contenedorVideos">
           <div
             className="carousel"
             style={{
               transform: `translateX(-${scrollPosition}px)`,
-              transition: "transform 0.3s ease",
+              transition: "transform 0.5s ease",
             }}
           >
             <div className="video">

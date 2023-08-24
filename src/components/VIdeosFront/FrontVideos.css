@@ -1,10 +1,29 @@
 .contenedorVideos {
   width: 100%;
-  padding: 20px 0;
   overflow: hidden;
   scroll-behavior: smooth;
   display: flex;
   flex-wrap: nowrap;
+}
+.FrontendSection {
+  background-color: #141414;
+  display: flex;
+  color: #fff;
+  justify-content: flex-start;
+  padding: 20px 0px 0px 20px;
+  align-items: center;
+  gap: 30px;
+}
+.tituloFront {
+  background-color: #00aac8;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 25px;
+}
+.spanBack {
+  font-size: 18px;
+  font-weight: 300;
 }
 .frontVideos {
   background-color: #141414;
@@ -20,7 +39,7 @@
   min-width: 30%;
 }
 .frontColVideos {
-  height: 200px;
+  height: 90%;
   width: 100%;
   margin-right: 0 !important;
   object-fit: contain;
@@ -54,4 +73,16 @@
   background-color: transparent;
   position: relative;
   z-index: 9;
+}
+@media screen and (max-width: 768px) {
+  .spanBack{
+    font-size: 10px;
+  }
+  .frontVideos{
+    height: 300px;
+  }
+  .frontColVideos{
+    height: 100%;
+    width: 270px;
+  }
 }

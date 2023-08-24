@@ -1,8 +1,9 @@
 .sectionCat {
-  height: 800px;
+  min-height: 800px;
+  height: 100%;
 }
 .formNuevaCat {
-  width: 30%;
+  width: 60%;
 }
 
 .inputBox {
@@ -11,12 +12,14 @@
   margin-top: 35px;
 }
 .btnAgregarCategoria {
-  width: 150px;
-  height: 44px;
+  width: fit-content;
+  height: fit-content;
+  padding: 10px 10px;
 }
 .btnBorrarFormCategoria {
-  width: 150px;
-  height: 44px;
+  width: fit-content;
+  height: fit-content;
+  padding: 10px 10px;
 }
 .inputBox input {
   position: relative;
@@ -123,4 +126,7 @@
 .colorIyG {
   background: #ff8c2a !important;
   border: 1px solid #ff8c2a;
+}
+.table-container{
+  overflow-x: auto;
 }

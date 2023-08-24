@@ -23,7 +23,7 @@ const BackendVideos = () => {
 
   const scrollCarousel = (direction) => {
     const carousel = document.querySelector(".carousel");
-    const scrollAmount = 300; // Adjust this value as needed
+    const scrollAmount = 200; // Adjust this value as needed
 
     if (direction === "left") {
       if (scrollPosition > 0) {
@@ -47,7 +47,7 @@ const BackendVideos = () => {
             className="carousel"
             style={{
               transform: `translateX(-${scrollPosition}px)`,
-              transition: "transform 0.3s ease",
+              transition: "transform 0.5s ease",
             }}
           >
             <div className="video">

@@ -17,7 +17,7 @@ const Home = () => {
             aplicar todos los conocimientos adquiridos en la formación React.
           </p>
         </div>
-        <div className="bannerIzquierda">
+        <div className="bannerDerecha">
           <img src={fotoBanner} alt="" className="previewVideoBanner" />
         </div>
       </section>

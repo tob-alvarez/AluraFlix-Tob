@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./NuevoVideo.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 const NuevoVideo = () => {
   const storedCategorias = JSON.parse(localStorage.getItem("categorias"));
@@ -41,12 +43,17 @@ const NuevoVideo = () => {
   const handleCategoria = (e) => {
     setValues({ ...values, categoria: e.target.value });
   };
+  const navigate = useNavigate();
+  const location = useLocation();
+  const back = () => {
+    navigate(-1);
+  };
 
   return (
     <>
       <section className="d-flex flex-column justify-content-center w-100 align-items-center formNuevoVideo">
         <h2 className="tituloNuevoVideo">Nuevo Video</h2>
-        <form className="d-flex flex-column">
+        <form className="d-flex flex-column w-50">
           <div className="inputBox">
             <input
               name="titulo"
@@ -132,17 +139,25 @@ const NuevoVideo = () => {
           </div>
         </form>
         <div className="d-flex justify-content-around w-50 mt-3">
-          <div className="d-flex gap-5">
+          <div className="d-flex gap-3 contenedorBotones">
             <button className="btnAgregarVideo" onClick={guardarVideo}>
               Guardar
             </button>
             <button className="btnBorrarForm" onClick={borrarCampos}>
               Limpiar
             </button>
+            <Link to="/nueva-categoria" className="btnAgregarVideo">
+              Nueva Categoria
+            </Link>
+            {location.pathname == "/nuevo-video" && (
+            <button className="btnVolver" onClick={back}>
+              <FontAwesomeIcon
+                className="btnVolverIcono"
+                icon={faArrowLeftLong}
+              />
+            </button>
+          )}
           </div>
-          <Link to="/nueva-categoria" className="btnAgregarVideo">
-            Nueva Categoria
-          </Link>
         </div>
       </section>
     </>

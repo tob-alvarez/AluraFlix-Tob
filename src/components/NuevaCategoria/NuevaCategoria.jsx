@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "./NuevaCategoria.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeftLong, faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {  useLocation, useNavigate } from "react-router-dom";
 
 const NuevaCategoria = () => {
   const initialValues = {
@@ -60,10 +61,15 @@ const NuevaCategoria = () => {
     updatedCategorias.splice(index, 1);
     setCategorias(updatedCategorias);
   };
+  const navigate = useNavigate();
+  const location = useLocation();
+  const back = () => {
+    navigate(-1);
+  };
 
   return (
     <>
-      <section className="d-flex flex-column justify-content-center w-100 align-items-center sectionCat">
+      <section className="d-flex flex-column justify-content-center align-items-center sectionCat">
         <h2 className="tituloNuevoVideo mb-5">Nueva Categoria</h2>
         <form action="" className="SpanForms d-flex flex-column formNuevaCat">
           <div className="inputBox">
@@ -116,18 +122,26 @@ const NuevaCategoria = () => {
           </div>
         </form>
         <div className="d-flex justify-content-around w-50 mt-3">
-          <div className="d-flex gap-5">
+          <div className="d-flex gap-5 contenedorBotones">
             <button className="btnAgregarCategoria" onClick={guardarCategoria}>
               Guardar
             </button>
             <button className="btnBorrarFormCategoria" onClick={borrarCampos}>
               Limpiar
             </button>
+          {location.pathname == "/nueva-categoria" && (
+            <button className="btnVolver" onClick={back}>
+              <FontAwesomeIcon
+                className="btnVolverIcono"
+                icon={faArrowLeftLong}
+              />
+            </button>
+          )}
           </div>
         </div>
       </section>
-      <section className="d-flex justify-content-center align-items-center mb-5 w-100">
-        <table className="table w-75">
+      <section className="d-flex justify-content-center align-items-center mb-5 table-container ">
+        <table className="table table-responsive-lg w-75">
           <thead className="">
             <tr>
               <th scope="col">#</th>
