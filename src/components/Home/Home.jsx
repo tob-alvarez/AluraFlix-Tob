@@ -3,6 +3,7 @@ import fotoBanner from "../../assets/fotoPreviewVideo.png";
 import FrontVideos from "../VideosFront/FrontVideos";
 import BackVideos from "../BackendVideos/BackendVideos";
 import IyG from "../IyG/IyG";
+import ContenedorVideos from "../ContenedorVideos/ContenedorVideos";
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
       <FrontVideos />
       <BackVideos />
       <IyG />
+      <ContenedorVideos />
     </>
   );
 };

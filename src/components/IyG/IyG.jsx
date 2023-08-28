@@ -15,7 +15,6 @@ const IyG = () => {
   const storedVideos = JSON.parse(localStorage.getItem("videos"));
   const [videos, setVideos] = useState(storedVideos);
 
-  console.log(storedVideos);
   useEffect(() => {
     localStorage.setItem("videos", JSON.stringify(videos));
   }, [videos]);

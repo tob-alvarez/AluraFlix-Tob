@@ -14,7 +14,6 @@ const FrontVideos = () => {
   const storedVideos = JSON.parse(localStorage.getItem("videos"));
   const [videos, setVideos] = useState(storedVideos);
 
-  console.log(storedVideos);
   useEffect(() => {
     localStorage.setItem("videos", JSON.stringify(videos));
   }, [videos]);
@@ -23,7 +22,7 @@ const FrontVideos = () => {
 
   const scrollCarousel = (direction) => {
     const carousel = document.querySelector(".carousel");
-    const scrollAmount = 200; // Adjust this value as needed
+    const scrollAmount = window.innerWidth * 0.4;
 
     if (direction === "left") {
       if (scrollPosition > 0) {

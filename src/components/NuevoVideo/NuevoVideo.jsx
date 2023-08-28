@@ -3,19 +3,35 @@ import "./NuevoVideo.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import validarFormulario from "../validaciones";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const NuevoVideo = () => {
   const storedCategorias = JSON.parse(localStorage.getItem("categorias"));
   const storedVideos = JSON.parse(localStorage.getItem("videos")) || [];
   const [videos, setVideos] = useState(storedVideos);
+  const [errores, setErrores] = useState({});
 
   useEffect(() => {
     localStorage.setItem("videos", JSON.stringify(videos));
   }, [videos]);
 
   const guardarVideo = () => {
-    setVideos([...videos, values]);
-    setValues(initialValues);
+    const errores = validarFormulario(values);
+    if (Object.values(values).some((value) => value === "")) {
+      toast.error("Todos los campos deben completarse.");
+      return;
+    }
+    if (Object.keys(errores).length === 0) {
+      setVideos([...videos, values]);
+      setValues(initialValues);
+      setErrores({});
+    } else {
+      Object.values(errores).forEach((error) => {
+        toast.error(error);
+      });
+    }
   };
 
   const initialValues = {
@@ -100,16 +116,10 @@ const NuevoVideo = () => {
             {storedCategorias == null ? (
               <></>
             ) : (
-              storedVideos.map((item) => {
+              storedCategorias.map((item) => {
                 return (
                   // eslint-disable-next-line react/jsx-key
-                  <div className="video">
-                    <img
-                      src={item.linkImagen}
-                      alt=""
-                      className="frontColVideos "
-                    />
-                  </div>
+                  <option>{item.nombre}</option>
                 );
               })
             )}
@@ -150,16 +160,17 @@ const NuevoVideo = () => {
               Nueva Categoria
             </Link>
             {location.pathname == "/nuevo-video" && (
-            <button className="btnVolver" onClick={back}>
-              <FontAwesomeIcon
-                className="btnVolverIcono"
-                icon={faArrowLeftLong}
-              />
-            </button>
-          )}
+              <button className="btnVolver" onClick={back}>
+                <FontAwesomeIcon
+                  className="btnVolverIcono"
+                  icon={faArrowLeftLong}
+                />
+              </button>
+            )}
           </div>
         </div>
       </section>
+      <ToastContainer />
     </>
   );
 };
