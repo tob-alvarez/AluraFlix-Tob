@@ -1,27 +1,25 @@
 import "./footer.css";
+import logo from "../../assets/logoTobFlix.png";
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer>
       <div className="footer">
         <ul className="enlacesFooter">
           <li>
-            <a href="https://github.com/tob-alvarez" target="_blank">
-              Github
-            </a>
+            <Link to="https://github.com/tob-alvarez">Github</Link>
           </li>
           <li>
-            <a
-              href="https://www.linkedin.com/in/tobias-alvarez99/"
-              target="_blank"
-            >
+            <Link to="https://www.linkedin.com/in/tobias-alvarez99/">
               LinkedIn
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">Portfolio</a>
+            <Link to="#">Portfolio</Link>
           </li>
         </ul>
-        <img src="src\assets\logoTobFlix.png" alt="logoPagina" />
+        <img src={logo} alt="logoPagina" />
       </div>
     </footer>
   );
